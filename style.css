@@ -17,7 +17,7 @@
 
   /* Font size */
   --font-large: 48px;
-  --font-medium: 28px;
+  --font-medium: 35px;
   --font-regular: 18px;
   --font-small: 16px;
   --font-micro: 14px;
@@ -173,7 +173,7 @@ p {
   width: 250px;
   height: 250px;
   border-radius: 50%;
-  border: 2px solid var(--color-white);
+  border: 2px solid var(--color-black);
 }
 
 .home__title,
@@ -358,9 +358,11 @@ p {
 }
 
 .work__projects {
+  max-width: 1200px;
   display: flex;
   flex-wrap: wrap; /*flex box가 화면상 한줄에 넘어가면 다으줄로 넘기는 기능*/
   justify-content: center;
+  margin: auto;
 }
 
 .project {
@@ -399,7 +401,8 @@ p {
   transform: translateY(0px);
 }
 
-.porject__description h3 {
+.porject__description h3,
+.porject__description span {
   color: var(--color-white);
 }
 
@@ -427,6 +430,7 @@ p {
 
 .testimonial {
   display: flex;
+  justify-content: center;
   margin: 32px 0;
 }
 
@@ -456,4 +460,41 @@ p {
 
 .testimonial__speech-bubble a {
   color: var(--color-pink);
+}
+
+/* Contact */
+
+#contact {
+  background-color: var(--color-dark-grey);
+}
+.contact__title,
+.contact__rights,
+.contact__email {
+  color: var(--color-white);
+}
+.contact__title {
+  margin: 32px;
+}
+
+.contact__email {
+  margin-bottom: 24px;
+}
+
+.contact__links {
+  display: flex;
+  justify-content: space-evenly;
+  max-width: 150px;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+.contact__links a :visited {
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+.contact__links a :hover {
+  transform: scale(1.1);
+  color: var(--color-yellow);
+  transition: var(--animation-duration) ease-in;
 }
