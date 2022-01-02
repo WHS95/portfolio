@@ -358,11 +358,9 @@ p {
 }
 
 .work__projects {
-  max-width: 1200px;
   display: flex;
   flex-wrap: wrap; /*flex box가 화면상 한줄에 넘어가면 다으줄로 넘기는 기능*/
   justify-content: center;
-  margin: auto;
 }
 
 .project {
