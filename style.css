@@ -134,7 +134,8 @@ p {
   background-color: transparent;
   align-items: center;
   color: var(--color-white);
-  padding: 15px;
+  padding: 8px;
+  z-index: 1;
 }
 
 #navbar.navbar--dark {
@@ -153,7 +154,7 @@ p {
 }
 
 .navbar__menu__item {
-  padding: 8px 12px;
+  padding: 8px 14px;
   margin: 0px 4px;
   cursor: pointer;
   border-radius: var(--size-border-radius);
