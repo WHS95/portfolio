@@ -31,7 +31,22 @@ homecontactBtn.addEventListener("click", () => {
   scrollIntoView("#contact");
 });
 
+
+
+//home chagning outcolor when scrolling
+
+const home = document.querySelector(".home__container")
+const homeheight = home.getBoundingClientRect().height;
+document.addEventListener("scroll", () => {
+  home.style.opacity = 1-window.scrollY / (homeheight+120)
+});
+
+
+
+
+
 function scrollIntoView(selector) {
   const scrollTo = document.querySelector(selector);
   scrollTo.scrollIntoView({ behavior: "smooth" });
 }
+
