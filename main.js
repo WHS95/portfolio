@@ -31,22 +31,33 @@ homecontactBtn.addEventListener("click", () => {
   scrollIntoView("#contact");
 });
 
+//home padeing when scrolling
 
-
-//home chagning outcolor when scrolling
-
-const home = document.querySelector(".home__container")
+const home = document.querySelector(".home__container");
 const homeheight = home.getBoundingClientRect().height;
 document.addEventListener("scroll", () => {
-  home.style.opacity = 1-window.scrollY / (homeheight+120)
+  home.style.opacity = 1 - window.scrollY / (homeheight + 120);
 });
 
+// 스코롤을 내릴때 Arrow-up  아이콘 나오게 하기
+// Show Arrow-up icon when scrolling down
+const arrowUp = document.querySelector(".arrow-up");
+document.addEventListener("scroll", () => {
+  if (window.scrollY > homeheight / 2) {
+    arrowUp.classList.add("visible");
+  } else {
+    arrowUp.classList.remove("visible");
+  }
+});
 
+// Arrow up 아이콘 클릭시 홈 맨위로 가게 만들기
+arrowUp.addEventListener("click", () => {
+  scrollIntoView("#home");
+});
 
-
-
+// 선택한 아이디 위치로 이동하기
+// move to id when click
 function scrollIntoView(selector) {
   const scrollTo = document.querySelector(selector);
   scrollTo.scrollIntoView({ behavior: "smooth" });
 }
-
