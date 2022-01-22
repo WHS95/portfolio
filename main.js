@@ -1,31 +1,37 @@
-'use strict';
-
+"use strict";
 
 //make navbar wheen it is on the top
-const navbar = document.querySelector('#navbar');
+const navbar = document.querySelector("#navbar");
 const navbarHeight = navbar.getBoundingClientRect().height;
-document.addEventListener('scroll',()=> {
-    if(window.scrollY>navbarHeight){
-        navbar.classList.add('navbar--dark');
-    } else{
-        navbar.classList.remove('navbar--dark');
-    }
+document.addEventListener("scroll", () => {
+  if (window.scrollY > navbarHeight) {
+    navbar.classList.add("navbar--dark");
+  } else {
+    navbar.classList.remove("navbar--dark");
+  }
 });
 
-// handle scrolling when tapping on the navbar menu
+// 메뉴버튼을 눌렀을때 그 해당메뉴로 이동하는 기능
 
-const navbarMenu = document.querySelector('.navbar__menu');
-navbarMenu.addEventListener('click',()=>{
+const navbarMenu = document.querySelector(".navbar__menu");
+navbarMenu.addEventListener("click", () => {
+  const target = event.target;
+  const link = target.dataset.link;
+  if (link == null) {
+    return;
+  }
 
-    const target= event.target;
-    const link = target.dataset.link;
-    if (link == null){
-        return;
-    }
+  scrollIntoView(link);
+});
 
-    console.log(event.target.dataset.link);
-    const scrollTo = document.querySelector(link)
-    scrollTo.scrollIntoView({behavior: "smooth"});
+// 홈에서 contact me라는 버튼을 눌렀을때 맨아래 contact 부분으로 이동하는 기능
 
+const homecontactBtn = document.querySelector(".home__contact");
+homecontactBtn.addEventListener("click", () => {
+  scrollIntoView("#contact");
+});
+
+function scrollIntoView(selector) {
+  const scrollTo = document.querySelector(selector);
+  scrollTo.scrollIntoView({ behavior: "smooth" });
 }
-)
