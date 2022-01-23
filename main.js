@@ -55,6 +55,30 @@ arrowUp.addEventListener("click", () => {
   scrollIntoView("#home");
 });
 
+// 프로젝트 별 컨텐츠 나오게
+// 부모요소의 데이터 요소를 가져와서 할 수있게 만들어졌음
+const workBtnContainer = document.querySelector(".work__categories");
+const projectContainer = document.querySelector(".work__projects");
+const projects = document.querySelectorAll(".project");
+workBtnContainer.addEventListener("click", (e) => {
+  const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
+  if (filter == null) {
+    return;
+  }
+  projectContainer.classList.add("anim-out");
+  setTimeout(() => {
+    projects.forEach((project) => {
+      console.log(project.dataset.type);
+      if (filter === "*" || filter === project.dataset.type) {
+        project.classList.remove("invisible");
+      } else {
+        project.classList.add("invisible");
+      }
+    });
+    projectContainer.classList.remove("anim-out");
+  }, 300);
+});
+
 // 선택한 아이디 위치로 이동하기
 // move to id when click
 function scrollIntoView(selector) {
