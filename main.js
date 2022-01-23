@@ -65,6 +65,13 @@ workBtnContainer.addEventListener("click", (e) => {
   if (filter == null) {
     return;
   }
+
+  // work탭에서 선택된 부분에 대한 하이라이틀 유지
+  const active = document.querySelector(".category__btn.selected");
+  active.classList.remove("selected");
+  const target = e.target.nodeName == "BUTTON" ? e.target : e.target.parentNode;
+  e.target.classList.add("selected");
+
   projectContainer.classList.add("anim-out");
   setTimeout(() => {
     projects.forEach((project) => {
